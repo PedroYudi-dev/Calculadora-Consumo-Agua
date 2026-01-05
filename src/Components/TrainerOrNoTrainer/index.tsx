@@ -13,10 +13,10 @@ export default function TrainerOrNoTrainer({ trainerOrNoTraine, setTrainerOrNoTr
         value={trainerOrNoTraine}
         onChange={(e) => setTrainerOrNoTraine(e.target.value)}
       >
-        <option value="" disabled hidden>Selecione a opção</option>
+        <option value="" disabled hidden>Selecione uma opção</option>
 
-        <option >Hoje irei treinar</option>
-        <option >Hoje não iriei treinar</option>
+        <option value ="45" >Hoje irei treinar</option>
+        <option value="33" >Hoje não iriei treinar</option>
       </select>
     </>
   );

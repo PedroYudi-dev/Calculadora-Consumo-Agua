@@ -5,14 +5,27 @@ type InputInfoPesoProps = {
 };
 
 export default function InputInfoPeso({ weight, setWeight }: InputInfoPesoProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value  = e.target.value;
+    if(value === ''){
+      setWeight(0);
+      return      
+    }
+    setWeight(Number(value));
+  }
+  const formatWeight = () =>{
+    return weight === 0 ? '' : weight;
+  }
 
     return (
       <>
         <input
           type="number"
           className={styles.inputWeight}
-          value={weight}
-          onChange={(e) => setWeight(Number(e.target.value))}
+          min="0"
+          placeholder="Digite o seu peso"
+          value={formatWeight()}
+          onChange={handleChange}
         />
       </>
     );
