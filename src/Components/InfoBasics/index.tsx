@@ -5,21 +5,28 @@ import TrainerOrNoTrainer from "../TrainerOrNoTrainer";
 import ButtonValue from "../ButtonValue";
 import { WaterConsumpt } from "../../Utils/ValueWaterConsumption";
 import ResultView from "../ResultView";
+import CapacityBottle from "../CapacityBottle";
+import { QuantityBottle } from "../../Utils/QuantityBottle";
 
 export default function InfoBasic(){
     const [weight, setWeight] = useState(0);
     // const [age, setAge] = useState<number>(0);
     const [trainerOrNoTraine, setTrainerOrNoTraine] = useState("");
-    const [result , setResult] = useState<number | null>(null);
+    const [resultTotalWater , setResultTotalWater] = useState<number | null>(null);
+    const [resultTotalBottle, setResultTotalBottle] = useState<number | null>(null);
+    const [capacity, setCapacity] = useState("");
 
     const hanldeValeuTotalWater = () =>{
-      if(!weight || !trainerOrNoTraine)return
+      if(!weight || !trainerOrNoTraine || !capacity)return
       const valueWater = Number(weight)
       const valueTrainerOrNoTraine = Number(trainerOrNoTraine)
       const totalWater = WaterConsumpt(valueWater, valueTrainerOrNoTraine);
-      setResult(totalWater)
+      const valueCapacity = Number(capacity)
+      if(valueCapacity <= 0) return;
+      const totalBottles = QuantityBottle(totalWater, valueCapacity);
+      setResultTotalBottle(totalBottles)
+      setResultTotalWater(totalWater)
     }
-    console.log(result)
 
     return (
       <>
@@ -28,13 +35,18 @@ export default function InfoBasic(){
           trainerOrNoTraine={trainerOrNoTraine}
           setTrainerOrNoTraine={setTrainerOrNoTraine}
         />
+        <CapacityBottle capacity={capacity} setCapacity={setCapacity} />
         <ButtonValue
           onClick={hanldeValeuTotalWater}
           title="Calcular consumo de água"
         />
-        {
-          !result ? <p>Preencha os campos acima para saber o seu consumo de água diário</p> : <ResultView Resul={result} />
-        }
+        {resultTotalWater == null || resultTotalBottle == null ? (
+          <p>
+            Preencha os campos acima para saber o seu consumo de água diário
+          </p>
+        ) : (
+          <ResultView ResulWater={resultTotalWater} ResulBottle={resultTotalBottle} />
+        )}
       </>
     );
 }
