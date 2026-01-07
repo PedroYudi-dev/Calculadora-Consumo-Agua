@@ -34,7 +34,7 @@ interface TextTypeProps {
 
 const TextType = ({
   text,
-  as: Component = "div",
+  as: Component = "h2",
   typingSpeed = 50,
   initialDelay = 0,
   pauseDuration = 2000,

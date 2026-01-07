@@ -1,23 +1,44 @@
+import * as React from "react";
 import Styles from "./styles.module.css";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 type SelectGeneroProps = {
   trainerOrNoTraine: string;
-  setTrainerOrNoTraine: (trainerOrNoTraine: string) => void;
+  setTrainerOrNoTraine: (value: string) => void;
 };
 
-export default function TrainerOrNoTrainer({ trainerOrNoTraine, setTrainerOrNoTraine }: SelectGeneroProps) {
+export default function TrainerOrNoTrainer({
+  trainerOrNoTraine,
+  setTrainerOrNoTraine,
+}: SelectGeneroProps) {
   return (
-    <>
-      <select
-        className={Styles.selectSex}
-        value={trainerOrNoTraine}
-        onChange={(e) => setTrainerOrNoTraine(e.target.value)}
-      >
-        <option value="" disabled hidden>Selecione uma opção</option>
+    <Select value={trainerOrNoTraine} onValueChange={setTrainerOrNoTraine}>
+      <SelectTrigger className={Styles.selectTrigger}>
+        <SelectValue placeholder="Selecione uma opção" />
+      </SelectTrigger>
 
-        <option value ="45" >Hoje irei treinar</option>
-        <option value="33" >Hoje não iriei treinar</option>
-      </select>
-    </>
+      <SelectContent className={Styles.selectContent}>
+        <SelectGroup>
+          <SelectLabel className={Styles.selectLabel}>Treino</SelectLabel>
+
+          <SelectItem value="45" className={Styles.selectItem}>
+            Hoje irei treinar
+          </SelectItem>
+
+          <SelectItem value="33" className={Styles.selectItem}>
+            Hoje não irei treinar
+          </SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 }

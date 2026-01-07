@@ -1,31 +1,62 @@
 import Styles from "./styles.module.css";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+
 type CapacityBottleProps = {
   capacity: string;
   setCapacity: (capacity: string) => void;
 };
 
 export default function CapacityBottle({ capacity, setCapacity }: CapacityBottleProps) {
+  const selectSetCapacity = (e: string) =>{
+    setCapacity(e);
+  }
   return (
     <>
-      <select
-        className={Styles.selectSex}
-        value={capacity}
-        onChange={(e) => setCapacity(e.target.value)}
-      >
-        <option value="" disabled hidden>
-          Selecione a capacidade da sua garrafa 
-        </option>
+      <Select value={capacity} onValueChange={selectSetCapacity}>
+        <SelectTrigger className={Styles.selectTrigger}>
+          <SelectValue placeholder="Selecione uma opção" />
+        </SelectTrigger>
 
-        <option value="250">Garrafa de 250ML</option>
-        <option value="350">Garrafa de 35OML</option>
-        <option value="500">Garrafa de 500ML</option>
-        <option value="600">Garrafa de 600ML</option>
-        <option value="750">Garrafa de 750ML</option>
-        <option value="1000">Garrafa de 1L</option>
-        <option value="1500">Garrafa de 1,5L</option>
-        <option value="2000">Garrafa de 2L</option>
-      </select>
+        <SelectContent className={Styles.selectContent}>
+          <SelectGroup>
+            <SelectLabel className={Styles.selectLabel}>Treino</SelectLabel>
+
+            <SelectItem value="250" className={Styles.selectItem}>
+              Garrafa de 250ML
+            </SelectItem>
+            <SelectItem value="350" className={Styles.selectItem}>
+              Garrafa de 35OML
+            </SelectItem>
+            <SelectItem value="500" className={Styles.selectItem}>
+              Garrafa de 500ML
+            </SelectItem>
+            <SelectItem value="600" className={Styles.selectItem}>
+              Garrafa de 600ML
+            </SelectItem>
+            <SelectItem value="750" className={Styles.selectItem}>
+              Garrafa de 750ML
+            </SelectItem>
+            <SelectItem value="1000" className={Styles.selectItem}>
+              Garrafa de 1L
+            </SelectItem>
+            <SelectItem value="1500" className={Styles.selectItem}>
+              Garrafa de 1,5L
+            </SelectItem>
+            <SelectItem value="2000" className={Styles.selectItem}>
+              Garrafa de 2L
+            </SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import InfoBasic from "../Components/InfoBasics";
 import LightPillar from "../Components/LightPillar";
-import TextType from "../Components/TextType";
+import SplitText from "../Components/SplitText";
 import Container from "../Container";
 
 export function InicialPage(){
@@ -36,14 +36,19 @@ export function InicialPage(){
             }}
           >
             <Container>
-              <TextType
+              <SplitText
                 text="Calculadora de consumo de água"
-                as="h1"
-                className="title-react-style"
-                typingSpeed={100}
-                initialDelay={300}
-                textColors={["#FFF"]}
+                tag="h1"
+                className="title-react-style-react"
+                splitType="chars"
+                delay={40}
+                duration={1.2}
+                ease="power3.out"
+                from={{ opacity: 0, y: 60 }}
+                to={{ opacity: 1, y: 0 }}
+                textAlign="center"
               />
+
               <InfoBasic />
             </Container>
           </div>

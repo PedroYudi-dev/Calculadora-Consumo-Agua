@@ -8,3 +8,54 @@
     font-size: 16px;
     line-height: 2px;
 }
+
+.selectTrigger {
+  width: 240px;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 6px;
+  border: 2px solid #256cd7;
+  background: #fff;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.selectTrigger:focus {
+  outline: none;
+  border-color: #091ee2;
+}
+
+.selectContent {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 4px;
+  padding: 4px;
+  z-index: 9999;
+}
+
+.selectItem {
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selectItem:hover {
+  background: #f0f2ff;
+}
+
+.selectItem[data-state="checked"] {
+  background: #e6e9ff;
+  font-weight: 300;
+}
+
+.selectLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  padding: 6px 10px;
+}

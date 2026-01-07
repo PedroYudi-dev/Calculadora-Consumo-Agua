@@ -7,6 +7,7 @@ import { WaterConsumpt } from "../../Utils/ValueWaterConsumption";
 import ResultView from "../ResultView";
 import CapacityBottle from "../CapacityBottle";
 import { QuantityBottle } from "../../Utils/QuantityBottle";
+import TextType from "../TextType";
 
 export default function InfoBasic(){
     const [weight, setWeight] = useState(0);
@@ -41,9 +42,19 @@ export default function InfoBasic(){
           title="Calcular consumo de água"
         />
         {resultTotalWater == null || resultTotalBottle == null ? (
-          <p>
-            Preencha os campos acima para saber o seu consumo de água diário
-          </p>
+          
+           <TextType
+                text=" Preencha os campos acima para saber o seu consumo de água diário"
+                tag="h1"
+                className="title-react-style"
+                splitType="chars"
+                delay={40}
+                duration={1.2}
+                ease="power3.out"
+                from={{ opacity: 0, y: 60 }}
+                to={{ opacity: 1, y: 0 }}
+                textAlign="center"
+              /> 
         ) : (
           <ResultView ResulWater={resultTotalWater} ResulBottle={resultTotalBottle} />
         )}
