@@ -42,7 +42,7 @@ export function InicialPage(){
                 className="title-react-style-react"
                 splitType="chars"
                 delay={40}
-                duration={1.2}
+                duration={1.9}
                 ease="power3.out"
                 from={{ opacity: 0, y: 60 }}
                 to={{ opacity: 1, y: 0 }}

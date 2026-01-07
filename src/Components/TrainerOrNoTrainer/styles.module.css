@@ -22,16 +22,28 @@
   align-items: center;
   justify-content: space-between;
   font-weight: bold;
+
+  background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition:  all 0.5s ease-in-out;
 }
 
-.selectTrigger:focus {
-  outline: none;
-  border-color: #091ee2;
+.selectTrigger:focus{
+  
+    border-color: #00CED1;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.4),
+  0 0 15px rgba(0, 206, 209, 0.5);
+
 }
 
 .selectContent {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: rgba(0, 51, 102, 0.4);
+  border: 2px solid #003366;
   border-radius: 6px;
   margin-top: 4px;
   padding: 4px;
@@ -42,20 +54,21 @@
   padding: 8px 10px;
   border-radius: 4px;
   cursor: pointer;
+  color: #fff;
 }
 
 .selectItem:hover {
-  background: #f0f2ff;
+  background: #256cd7;
 }
 
 .selectItem[data-state="checked"] {
-  background: #e6e9ff;
+  background: #003366;
   font-weight: 300;
 }
 
 .selectLabel {
   font-size: 12px;
   font-weight: 600;
-  color: #666;
+  color: #00CED1;
   padding: 6px 10px;
 }
