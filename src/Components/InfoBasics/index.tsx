@@ -42,21 +42,19 @@ export default function InfoBasic(){
           title="Calcular consumo de água"
         />
         {resultTotalWater == null || resultTotalBottle == null ? (
-          
-           <TextType
-                text=" Preencha os campos acima para saber o seu consumo de água diário"
-                tag="h1"
-                className="title-react-style"
-                splitType="chars"
-                delay={40}
-                duration={1.2}
-                ease="power3.out"
-                from={{ opacity: 0, y: 60 }}
-                to={{ opacity: 1, y: 0 }}
-                textAlign="center"
-              /> 
+          <TextType
+            text=" Preencha os campos acima para saber o seu consumo de água diário"
+            as="h1"
+            className="title-react-style"
+            typingSpeed={40}
+            pauseDuration={1200}
+            showCursor={false}
+          />
         ) : (
-          <ResultView ResulWater={resultTotalWater} ResulBottle={resultTotalBottle} />
+          <ResultView
+            ResulWater={resultTotalWater}
+            ResulBottle={resultTotalBottle}
+          />
         )}
       </>
     );

@@ -7,7 +7,7 @@ type ResultViewProps = {
 };
 
 export default function ResultView({ResulWater, ResulBottle}: ResultViewProps){
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null!);
     const Litros = ResulWater ? ResulWater / 1000 : 0;
     const roundedLitros = Math.ceil(Litros * 10) / 10;
 

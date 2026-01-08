@@ -1,4 +1,3 @@
-import * as React from "react";
 import Styles from "./styles.module.css";
 
 import {
